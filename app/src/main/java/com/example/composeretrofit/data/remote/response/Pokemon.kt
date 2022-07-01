@@ -1,6 +1,6 @@
 package com.example.composeretrofit.data.remote.response
 
-data class Pokemone(
+data class Pokemon(
     val abilities: List<Ability>,
     val base_experience: Int,
     val forms: List<Form>,

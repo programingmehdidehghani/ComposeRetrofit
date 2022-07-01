@@ -1,6 +1,6 @@
 package com.example.composeretrofit.data.remote
 
-import com.example.composeretrofit.data.remote.response.Pokemone
+import com.example.composeretrofit.data.remote.response.Pokemon
 import com.example.composeretrofit.data.remote.response.PokemoneList
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -17,5 +17,5 @@ interface PokeApi {
     @GET("pokemon/{name}")
     suspend fun getPokemonInfo(
         @Path("name") name:String
-    ): Pokemone
+    ): Pokemon
 }
