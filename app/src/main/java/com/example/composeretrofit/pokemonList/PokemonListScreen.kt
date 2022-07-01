@@ -2,11 +2,14 @@ package com.example.composeretrofit.pokemonList
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.draggable
+import androidx.compose.foundation.interaction.FocusInteraction
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -37,6 +40,14 @@ fun PokemonListScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .align(CenterHorizontally))
+
+            SearchBar(
+                hint = "search .....",
+                modifier = Modifier.fillMaxWidth()
+                    .padding(16.dp)
+            ){
+
+            }
         }
 
     }
@@ -56,7 +67,8 @@ fun SearchBar(
    }
     
    Box(modifier = modifier){
-       BasicTextField(value = text
+       BasicTextField(
+           value = text
            , onValueChange = {
                text = it
                onSearch(it)
@@ -64,15 +76,22 @@ fun SearchBar(
            maxLines = 1,
            singleLine = true,
            textStyle = TextStyle(color = Color.Black),
-           modifier = Modifier.fillMaxWidth()
+           modifier = Modifier
+               .fillMaxWidth()
                .shadow(5.dp, CircleShape)
                .background(Color.White, CircleShape)
-               .padding(horizontal = 20.dp , vertical = 12.dp)
+               .padding(horizontal = 20.dp, vertical = 12.dp)
                .onFocusChanged {
-                   isHintDisplayed = it !=
+                  // isHintDisplayed = it != FocusInteraction.Focus
                }
-       ){
-
+       )
+       if (isHintDisplayed){
+           Text(
+               text = hint,
+               color = Color.LightGray,
+               modifier = Modifier
+                   .padding(horizontal = 20.dp , vertical = 12.dp)
+           )
        }
    }
 
