@@ -1,6 +1,8 @@
 package com.example.composeretrofit.di
 
 import com.example.composeretrofit.data.remote.PokeApi
+import com.example.composeretrofit.repository.PokemonRepository
+import com.example.composeretrofit.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

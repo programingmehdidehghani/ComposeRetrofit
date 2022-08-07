@@ -5,6 +5,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
+import androidx.palette.graphics.Palette
 import com.example.composeretrofit.repository.PokemonRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

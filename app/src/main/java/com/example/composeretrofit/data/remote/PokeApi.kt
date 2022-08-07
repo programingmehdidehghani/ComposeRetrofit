@@ -1,5 +1,7 @@
 package com.example.composeretrofit.data.remote
 
+import com.example.composeretrofit.data.remote.response.Pokemon
+import com.example.composeretrofit.data.remote.response.PokemoneList
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
