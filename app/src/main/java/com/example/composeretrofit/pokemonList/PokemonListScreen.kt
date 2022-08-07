@@ -1,5 +1,6 @@
 package com.example.composeretrofit.pokemonList
 
+import android.view.Surface
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 
@@ -9,5 +10,10 @@ fun PokemonListScreen(
     navController: NavController
 ){
 
+    Surface(
+
+    ){
+
+    }
 }
 

@@ -24,7 +24,33 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
+            val navController = rememberNavController()
+            NavHost(navController = navController
+                , startDestination = "pokemon_list_screen"
+            ){
+                composable("pokemon_list_screen"){
+                    PokemonListScreen(navController = navController)
+                }
+                composable(
+                    "pokemon_detail_screen/{dominantColor}/{pokemonName}",
+                    arguments = listOf(
+                        navArgument("dominantController"){
+                            type = NavType.IntType
+                        },
+                        navArgument("pokemonName"){
+                            type = NavType.StringType
+                        }
+                    )
+                ){
+                    val dominantColor = remember {
+                        val color = it.arguments?.getInt("dominantColor")
+                        color?.let { Color(it) } ?:Color.White
+                    }
+                    val pokemonName = remember {
+                        it.arguments?.getString("pokemonName")
+                    }
+                }
+            }
         }
     }
 }
