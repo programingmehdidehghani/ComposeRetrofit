@@ -7,9 +7,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -37,9 +36,17 @@ fun PokemonListScreen(
             Image(painter = painterResource(id = R.drawable.ic_international_pok_mon_logo),
                 contentDescription = "pokemon",
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .align(CenterHorizontally)
             )
+            searchBar(
+                hint = "Search ....",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            ){
+
+            }
 
         }
     }
@@ -57,7 +64,6 @@ fun searchBar(
     var isHintDisplayed by remember {
         mutableStateOf(hint != "")
     }
-    
     Box(modifier = modifier){
         BasicTextField(
             value = text,
@@ -69,15 +75,20 @@ fun searchBar(
             singleLine = true,
             textStyle = TextStyle(color = Color.Black),
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 .shadow(5.dp, CircleShape)
                 .background(Color.White, CircleShape)
-                .padding(horizontal = 20.dp , vertical = 12.dp)
+                .padding(horizontal = 20.dp, vertical = 12.dp)
                 .onFocusChanged {
-                    isHintDisplayed = it != FocusState.Active
+                  //  isHintDisplayed = it //!= FocusState.isFocused
                 }
-        ){
-
+        )
+        if (isHintDisplayed){
+            Text(
+                text = hint,
+                color = Color.LightGray,
+                modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp)
+            )
         }
     }
 }
