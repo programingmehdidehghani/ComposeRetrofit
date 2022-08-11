@@ -21,6 +21,7 @@ import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -28,6 +29,7 @@ import androidx.hilt.navigation.compose.hiltNavGraphViewModel
 import androidx.navigation.NavController
 import com.example.composeretrofit.R
 import com.example.composeretrofit.data.models.PokedexListEntry
+import com.google.accompanist.coil.CoilImage
 
 
 @Composable
@@ -129,10 +131,14 @@ fun PokedexEntry(
                 )
             )
             .clickable {
-
+                navController.navigate(
+                    "pokemon_detail_screen/${dominantColor.toArgb()}/${entry.pokemonName}"
+                )
             }
     ){
+        Column {
 
+        }
     }
 }
 
