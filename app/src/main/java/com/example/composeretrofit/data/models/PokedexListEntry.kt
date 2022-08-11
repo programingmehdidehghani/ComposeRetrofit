@@ -1,4 +1,4 @@
-package com.example.composeretrofit.data.Model
+package com.example.composeretrofit.data.models
 
 data class PokedexListEntry(
     val pokemonName : String,
